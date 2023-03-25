@@ -8,7 +8,8 @@
 <body>
 
     <div class="alert-box" id="alert">
-        <p>알림창임</p>
+        <p id="name">알림창임</p>
+        <button id="close">닫기</button>
     </div>
     <button onclick="controlAlert(1)">버튼</button>
     <button onclick="controlAlert(2)">버튼2</button>
@@ -17,15 +18,16 @@
     <script>
 
         function controlAlert(a) {
-            if( a == 3)
-                document.getElementById('alert').style.display = 'none';
-            
             document.getElementById('alert').style.display = 'block';
             if( a == 1 )
-                document.getElementById('alert').innerText = "아이디를 입력하세요";
+                document.getElementById('name').innerHTML = "아이디를 입력하세요";
             if( a == 2 )
-                document.getElementById('alert').innerText = "비밀먼호를 입력하세요";
+                document.getElementById('name').innerHTML = "비밀먼호를 입력하세요";
         }    
+
+        document.getElementById('close').addEventListener('click', function(){
+                document.getElementById('alert').style.display = 'none';
+        });
 
     </script>
     
@@ -35,3 +37,5 @@
 <!-- document.getElementById('1').2 = 3 / 1에는 바꿀 html 요소 id, 2. 무엇을 , 3. 어떻게 -->
 <!-- UI만드는 step : 1. html/css 미리 디자인 , 2.필요할 때 보여달라고 코드짬 -->
 <!-- function에 구멍뚫기(파라미터) / 함수 하나로 여러 개의 기능 구현 가능  -->
+<!-- addEventListener() => 유저가 행하는 행동에 따른 이벤트 발생 ex)keydown, scroll, click, mouseover -->
+<!-- 콜백함수 (파라미터 자리에 들어가는 함수 ) -->
